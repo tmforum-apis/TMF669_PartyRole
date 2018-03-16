@@ -516,6 +516,9 @@
                             "$ref": "#/definitions/Error"
                         }
                     }, 
+                    "204": {
+                        "description": "Deleted"
+                    }, 
                     "500": {
                         "description": "Internal Server Error", 
                         "schema": {
@@ -1020,10 +1023,6 @@
         "AgreementRef": {
             "type": "object", 
             "description": "Agreement reference. An agreement represents a contract or arrangement, either written or verbal and sometimes enforceable by law, such as a service level agreement or a customer price agreement. An agreement involves a number of other business entities, such as products, services, and resources and/or their specifications.", 
-            "required": [
-                "id", 
-                "href"
-            ], 
             "properties": {
                 "href": {
                     "type": "string", 
@@ -1046,11 +1045,6 @@
         "RelatedPartyRef": {
             "type": "object", 
             "description": "RelatedParty reference. A related party defines party or party role linked to a specific entity.", 
-            "required": [
-                "id", 
-                "name", 
-                "role"
-            ], 
             "properties": {
                 "href": {
                     "type": "string", 
