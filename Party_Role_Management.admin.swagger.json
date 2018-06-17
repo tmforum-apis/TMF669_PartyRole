@@ -520,6 +520,18 @@
                 "type"
             ], 
             "properties": {
+                "@baseType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the base class type of the extension class of the current object. Useful only when the class type of the current  object is unknown to the implementation."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the link to the schema that defines the structure of the class type of the current object."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the name of the resource class type"
+                }, 
                 "href": {
                     "type": "string", 
                     "description": "Url used to reference the party role."
@@ -548,7 +560,8 @@
                     "$ref": "#/definitions/PartyRef"
                 }, 
                 "type": {
-                    "$ref": "#/definitions/RoleTypeRef"
+                    "$ref": "#/definitions/RoleTypeRef", 
+                    "description": "The role type - useful only in the context of a partnership defining more than one role type."
                 }, 
                 "account": {
                     "type": "array", 
@@ -592,22 +605,6 @@
                     "items": {
                         "$ref": "#/definitions/RelatedPartyRef"
                     }
-                }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing a resource (for type extension)."
-                }, 
-                "@baseType": {
-                    "type": "string", 
-                    "description": "The base type for use in polymorphic collections"
-                }, 
-                "@referredType": {
-                    "type": "string", 
-                    "description": "The actual type of the target instance when needed for disambiguation."
                 }
             }
         }, 
@@ -619,6 +616,18 @@
                 "type"
             ], 
             "properties": {
+                "@baseType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the base class type of the extension class of the current object. Useful only when the class type of the current  object is unknown to the implementation."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the link to the schema that defines the structure of the class type of the current object."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the name of the resource class type"
+                }, 
                 "name": {
                     "type": "string", 
                     "description": "A word, term, or phrase by which the PartyRole is known and distinguished from other PartyRoles."
@@ -639,7 +648,8 @@
                     "$ref": "#/definitions/PartyRef"
                 }, 
                 "type": {
-                    "$ref": "#/definitions/RoleTypeRef"
+                    "$ref": "#/definitions/RoleTypeRef", 
+                    "description": "The role type - useful only in the context of a partnership defining more than one role type."
                 }, 
                 "account": {
                     "type": "array", 
@@ -683,22 +693,6 @@
                     "items": {
                         "$ref": "#/definitions/RelatedPartyRef"
                     }
-                }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing a resource (for type extension)."
-                }, 
-                "@baseType": {
-                    "type": "string", 
-                    "description": "The base type for use in polymorphic collections"
-                }, 
-                "@referredType": {
-                    "type": "string", 
-                    "description": "The actual type of the target instance when needed for disambiguation."
                 }
             }
         }, 
@@ -706,6 +700,18 @@
             "type": "object", 
             "description": "The part played by a party in a given context.\nSkipped properties: id,href,id,href", 
             "properties": {
+                "@baseType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the base class type of the extension class of the current object. Useful only when the class type of the current  object is unknown to the implementation."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the link to the schema that defines the structure of the class type of the current object."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the name of the resource class type"
+                }, 
                 "name": {
                     "type": "string", 
                     "description": "A word, term, or phrase by which the PartyRole is known and distinguished from other PartyRoles."
@@ -726,7 +732,8 @@
                     "$ref": "#/definitions/PartyRef"
                 }, 
                 "type": {
-                    "$ref": "#/definitions/RoleTypeRef"
+                    "$ref": "#/definitions/RoleTypeRef", 
+                    "description": "The role type - useful only in the context of a partnership defining more than one role type."
                 }, 
                 "account": {
                     "type": "array", 
@@ -770,22 +777,6 @@
                     "items": {
                         "$ref": "#/definitions/RelatedPartyRef"
                     }
-                }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing a resource (for type extension)."
-                }, 
-                "@baseType": {
-                    "type": "string", 
-                    "description": "The base type for use in polymorphic collections"
-                }, 
-                "@referredType": {
-                    "type": "string", 
-                    "description": "The actual type of the target instance when needed for disambiguation."
                 }
             }
         }, 
@@ -809,9 +800,14 @@
             "type": "object", 
             "description": "Party reference. A party represents an organization or an individual.", 
             "required": [
-                "id"
+                "id", 
+                "href"
             ], 
             "properties": {
+                "@referredType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the name of the class type of the referred resource entity."
+                }, 
                 "description": {
                     "type": "string", 
                     "description": "Text describing the referred party"
@@ -827,17 +823,20 @@
                 "name": {
                     "type": "string", 
                     "description": "Name of the referred party (such as a partner or any other party role)"
-                }, 
-                "@referredType": {
-                    "type": "string", 
-                    "description": "The actual type of the target instance when needed for disambiguation."
                 }
             }
         }, 
         "RoleTypeRef": {
             "type": "object", 
             "description": "RoleType reference.", 
+            "required": [
+                "name"
+            ], 
             "properties": {
+                "@referredType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the name of the class type of the referred resource entity."
+                }, 
                 "name": {
                     "type": "string", 
                     "description": "The name of the role type. It uniquely identifies the role type within the partnership type."
@@ -853,10 +852,6 @@
                 "partnershipName": {
                     "type": "string", 
                     "description": "The name of the partnership type defining this role type"
-                }, 
-                "@referredType": {
-                    "type": "string", 
-                    "description": "The actual type of the target instance when needed for disambiguation."
                 }
             }
         }, 
@@ -865,9 +860,14 @@
             "description": "Account reference. A account may be a party account or a financial account.", 
             "required": [
                 "id", 
+                "href", 
                 "name"
             ], 
             "properties": {
+                "@referredType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the name of the class type of the referred resource entity."
+                }, 
                 "description": {
                     "type": "string", 
                     "description": "Detailed description of the account"
@@ -883,10 +883,6 @@
                 "name": {
                     "type": "string", 
                     "description": "Name of the account"
-                }, 
-                "@referredType": {
-                    "type": "string", 
-                    "description": "The actual type of the target instance when needed for disambiguation."
                 }
             }
         }, 
@@ -898,6 +894,10 @@
                 "href"
             ], 
             "properties": {
+                "@referredType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the name of the class type of the referred resource entity."
+                }, 
                 "href": {
                     "type": "string", 
                     "description": "Reference of the payment mean"
@@ -909,10 +909,6 @@
                 "name": {
                     "type": "string", 
                     "description": "Name of the payment mean"
-                }, 
-                "@referredType": {
-                    "type": "string", 
-                    "description": "The actual type of the target instance when needed for disambiguation."
                 }
             }
         }, 
@@ -924,6 +920,18 @@
                 "characteristic"
             ], 
             "properties": {
+                "@baseType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the base class type of the extension class of the current object. Useful only when the class type of the current  object is unknown to the implementation."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the link to the schema that defines the structure of the class type of the current object."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the name of the resource class type"
+                }, 
                 "preferred": {
                     "type": "boolean", 
                     "description": "If true, indicates that is the preferred contact medium"
@@ -938,10 +946,6 @@
                 }, 
                 "characteristic": {
                     "$ref": "#/definitions/MediumCharacteristic"
-                }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
                 }
             }
         }, 
@@ -959,15 +963,7 @@
                 }, 
                 "value": {
                     "type": "string", 
-                    "description": "Value of the characteristic"
-                }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing a resource (for type extension)."
+                    "description": "The value of the characteristic provided as a string."
                 }
             }
         }, 
@@ -979,6 +975,18 @@
                 "validFor"
             ], 
             "properties": {
+                "@baseType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the base class type of the extension class of the current object. Useful only when the class type of the current  object is unknown to the implementation."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the link to the schema that defines the structure of the class type of the current object."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the name of the resource class type"
+                }, 
                 "creditProfileDate": {
                     "type": "string", 
                     "format": "date-time", 
@@ -995,10 +1003,6 @@
                 "validFor": {
                     "$ref": "#/definitions/TimePeriod", 
                     "description": "The period for which the profile is valid"
-                }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
                 }
             }
         }, 
@@ -1006,6 +1010,10 @@
             "type": "object", 
             "description": "Agreement reference. An agreement represents a contract or arrangement, either written or verbal and sometimes enforceable by law, such as a service level agreement or a customer price agreement. An agreement involves a number of other business entities, such as products, services, and resources and/or their specifications.", 
             "properties": {
+                "@referredType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the name of the class type of the referred resource entity."
+                }, 
                 "href": {
                     "type": "string", 
                     "description": "Reference of the agreement"
@@ -1017,10 +1025,6 @@
                 "name": {
                     "type": "string", 
                     "description": "Name of the agreement"
-                }, 
-                "@referredType": {
-                    "type": "string", 
-                    "description": "The actual type of the target instance when needed for disambiguation."
                 }
             }
         }, 
@@ -1028,6 +1032,10 @@
             "type": "object", 
             "description": "RelatedParty reference. A related party defines party or party role linked to a specific entity.", 
             "properties": {
+                "@referredType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the name of the class type of the referred resource entity."
+                }, 
                 "href": {
                     "type": "string", 
                     "description": "Reference of the related party, could be a party reference or a party role reference"
@@ -1043,10 +1051,6 @@
                 "role": {
                     "type": "string", 
                     "description": "Role of the related party."
-                }, 
-                "@referredType": {
-                    "type": "string", 
-                    "description": "The actual type of the target instance when needed for disambiguation."
                 }
             }
         }, 
@@ -1093,14 +1097,6 @@
                 "type": {
                     "type": "string", 
                     "description": "Type of medium (fax, mobile phone...)"
-                }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing a resource (for type extension)."
                 }
             }
         }, 
